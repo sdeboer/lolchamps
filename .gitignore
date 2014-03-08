@@ -7,3 +7,6 @@
 !.screenrc
 !.ssh/config
 !.bash_logout
+!.vim/autoload/pathogen.vim
+!.vim/bundle
+!.vim/bundle/**/*
