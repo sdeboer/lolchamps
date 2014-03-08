@@ -1,0 +1,9 @@
+*
+!.gitignore
+!.vimrc
+!.bashrc
+!.inputrc
+!.tmux.conf
+!.screenrc
+!.ssh/config
+!.bash_logout

@@ -1,0 +1,8 @@
+term screen-256color
+attrcolor b ".I"
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+defbce "on"
+screen -t server 
+screen -t 'console'
+screen -t editor
+screen -t cli
