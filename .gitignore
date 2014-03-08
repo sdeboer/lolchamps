@@ -4,6 +4,7 @@
 !.bashrc
 !.inputrc
 !.tmux.conf
+!.irbrc
 !.screenrc
 !.ssh/config
 !.bash_logout
