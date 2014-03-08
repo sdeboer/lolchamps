@@ -54,6 +54,14 @@ if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 endif
 
+if has('win32')
+	set lines=45 columns=140
+	autocmd! bufwritepost _vimrc source ~/_vimrc
+	set guifont=Consolas:h9
+else
+	autocmd! bufwritepost .vimrc source ~/.vimrc
+endif
+
 let s:dir = has('win32') ? '~/Application Data/Vim' : '~/.vimtmp'
 if isdirectory(expand(s:dir))
   if &directory =~# '^\.,'
@@ -86,9 +94,6 @@ func! Eatchar(pat)
   let c = nr2char(getchar(0))
   return (c =~ a:pat) ? '' : c
 endfunc
-
-"When .vimrc is edited, reload it
-autocmd! bufwritepost .vimrc source ~/.vimrc
 
 let g:mustache_abbreviations = 1
 

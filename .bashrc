@@ -94,6 +94,7 @@ alias h='fc -l'
 
 alias pd=pushd
 
+alias eperl='eperl -B "<?" -E "!>" -mc'
 alias g='egrep -i'
 alias hls="find . -maxdepth 1 -type f -and -name '.??*' -print"
 alias j=jobs
@@ -102,22 +103,22 @@ alias tls='tmux ls'
 alias ta='tmux attach'
 
 function z {
-dir="${HOME}/work/${1}"
+local dir="${HOME}/work/${1}"
 if [[ ! -d $dir ]]; then
-	dir=$1
+  dir=$1
 fi
 
 if [[ ! -d $dir ]]; then
-	echo "Cannot find ${1} to go to!" 1>&2
-	return 1
+  echo "Cannot find ${1} to go to!" 1>&2
+  return 1
 fi
 
 echo $dir
 
 cd $dir
-if [[ ! "$TMUX" -eq "" ]]; then
-	name=$(basename $dir)
-	tmux rename-window $name
+if [[ ! "$TMUX" = "" ]]; then
+  name=$(basename $dir)
+  tmux rename-window $name
 fi
 }
 
@@ -158,6 +159,7 @@ expand -3 <$1 | filep -s "$1"
 }
 
 function pmp {
+local MODE
 if [ "X$1" = "X-l" ]; then
 	shift;
 	MODE="-landscape"
@@ -231,7 +233,7 @@ cd $NEW
 }
 
 # User specific aliases and functions
-export APP_HOME=~/FireCat
+export APP_HOME=${HOME}/FireCat
 export KEY_DIR=${HOME}/.ssh
 alias cf="cd ${APP_HOME}"
 
@@ -259,8 +261,7 @@ alias c='ssh'
 # alias irc='bitchx -c\#gwmm sdeboer chat.us.freenode.net'
 alias be='bundle exec'
 
-
-if [[ $(uname -s) -eq "Darwin" ]]; then
+if [[ "$(uname -s)" = "Darwin" ]]; then
 	alias vim="reattach-to-user-namespace mvim"
 	export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
 	export ECLIPSE_HOME=/Applications/Eclipse
@@ -354,8 +355,16 @@ fi
 # GIT BRANCH DIFF SINCE BRANCH
 # git d $(git merge-base v4 v4lk)..v4lk
 
+export CHAMP_NAME=Pieslave.properties
+export 'CHAMP=/cygdrive/c/Riot Games/League of Legends/RADS/projects/lol_air_client/releases/0.0.1.75/deploy/preferences/${CHAMP_NAME}'
+alias cdc='cp ~/${CHAMP_NAME} "$CHAMP"'
+
+
+if [[ -e ${HOME}/.bashrc.local ]]; then
+  source ${HOME}/.bashrc.local
+fi
+
 export PATH=./bin:./script:~/bin:${PG_HOME}/bin:/usr/local/sbin:${PATH}:${EC2_HOME}/bin
 
 export RVM="${HOME}/.rvm"
 [[ -s ${RVM}/scripts/rvm ]] && source ${RVM}/scripts/rvm && export PATH=${RVM}/bin:${PATH}
-
