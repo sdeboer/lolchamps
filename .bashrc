@@ -357,7 +357,9 @@ fi
 
 export CHAMP_NAME=Pieslave.properties
 export 'CHAMP=/cygdrive/c/Riot Games/League of Legends/RADS/projects/lol_air_client/releases/0.0.1.75/deploy/preferences/${CHAMP_NAME}'
-alias cdc='cp ~/${CHAMP_NAME} "$CHAMP"'
+
+alias cup='cp ${HOME}/${CHAMP_NAME} "${CHAMP}"'
+alias cba='cp "$CHAMP" ${HOME}/${CHAMP_NAME}'
 
 
 if [[ -e ${HOME}/.bashrc.local ]]; then
