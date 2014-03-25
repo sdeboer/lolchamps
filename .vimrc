@@ -233,14 +233,13 @@ cnoremap <C-E>		<End>
 cnoremap <C-K>		<C-U>
 nnoremap Y y$
 
-set background=dark
 " LIGHT
 " color autumnleaf
 " color chela_light
 " color eclipse
 " color gaea
 " color tolerable
-" color earendel
+color earendel
 " color zenesque
 
 "  DARK
@@ -256,7 +255,9 @@ set background=dark
 " color xoria256
 " color desert256
 " color matrix
-color jellybeans
+" color jellybeans
 " color moria
+
+set background=dark
 
 Helptags
